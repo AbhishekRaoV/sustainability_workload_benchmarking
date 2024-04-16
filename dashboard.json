@@ -165,7 +165,7 @@
         },
         "showPercentChange": false,
         "text": {
-          "valueSize": 30
+          "valueSize": 40
         },
         "textMode": "auto",
         "wideLayout": true
@@ -251,7 +251,7 @@
         },
         "showPercentChange": true,
         "text": {
-          "valueSize": 30
+          "valueSize": 40
         },
         "textMode": "auto",
         "wideLayout": true
@@ -320,7 +320,7 @@
         },
         "showPercentChange": true,
         "text": {
-          "valueSize": 30
+          "valueSize": 40
         },
         "textMode": "auto",
         "wideLayout": true
@@ -389,7 +389,7 @@
         },
         "showPercentChange": true,
         "text": {
-          "valueSize": 30
+          "valueSize": 40
         },
         "textMode": "auto",
         "wideLayout": true
@@ -411,6 +411,776 @@
       ],
       "title": "Machine CO2 ",
       "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Mixed --"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "fieldMinMax": false,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "m"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 6,
+        "x": 0,
+        "y": 13
+      },
+      "id": 7,
+      "options": {
+        "infinitePan": false,
+        "inlineEditing": true,
+        "panZoom": false,
+        "root": {
+          "background": {
+            "color": {
+              "fixed": "#ebebeb"
+            }
+          },
+          "border": {
+            "color": {
+              "fixed": "dark-green"
+            }
+          },
+          "constraint": {
+            "horizontal": "left",
+            "vertical": "top"
+          },
+          "elements": [
+            {
+              "background": {
+                "color": {
+                  "fixed": "#be03c6"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "transparent"
+                },
+                "width": 11
+              },
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#ffffff"
+                },
+                "size": 18,
+                "text": {
+                  "fixed": "Phase Duration",
+                  "mode": "fixed"
+                },
+                "valign": "middle"
+              },
+              "constraint": {
+                "horizontal": "leftright",
+                "vertical": "topbottom"
+              },
+              "name": "Element 1",
+              "placement": {
+                "bottom": 166,
+                "left": 0,
+                "right": -10,
+                "top": 0
+              },
+              "type": "text"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "transparent"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "dark-green"
+                }
+              },
+              "config": {
+                "fill": {
+                  "fixed": "text"
+                },
+                "path": {
+                  "field": "",
+                  "fixed": "img/icons/unicons/clock.svg",
+                  "mode": "fixed"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "Element 2",
+              "placement": {
+                "height": 75.99537658691406,
+                "left": 56,
+                "top": 97,
+                "width": 79.9884262084961
+              },
+              "type": "icon"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "transparent"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "dark-green"
+                }
+              },
+              "config": {
+                "align": "center",
+                "color": {
+                  "fixed": "#000000"
+                },
+                "size": 30,
+                "text": {
+                  "field": "DurationInMinutes",
+                  "fixed": "",
+                  "mode": "field"
+                },
+                "valign": "middle"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "Element 3",
+              "placement": {
+                "height": 71.6782455444336,
+                "left": 130,
+                "top": 101,
+                "width": 154.87269592285156
+              },
+              "type": "metric-value"
+            }
+          ],
+          "name": "Element 1713267421953",
+          "placement": {
+            "height": 100,
+            "left": 0,
+            "top": 0,
+            "width": 100
+          },
+          "type": "frame"
+        },
+        "showAdvancedTypes": true
+      },
+      "pluginVersion": "10.4.2",
+      "targets": [
+        {
+          "dataset": "mysql",
+          "datasource": {
+            "type": "mysql",
+            "uid": "ddiwek39prrb4d"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT \r\n    TIMESTAMPDIFF(MINUTE, $__timeFrom(), $__timeTo()) AS DurationInMinutes",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "type": "canvas"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Mixed --"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "fieldMinMax": false,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "watt"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 6,
+        "x": 6,
+        "y": 13
+      },
+      "id": 8,
+      "options": {
+        "infinitePan": false,
+        "inlineEditing": true,
+        "panZoom": false,
+        "root": {
+          "background": {
+            "color": {
+              "fixed": "#ebebeb"
+            }
+          },
+          "border": {
+            "color": {
+              "fixed": "dark-green"
+            }
+          },
+          "constraint": {
+            "horizontal": "left",
+            "vertical": "top"
+          },
+          "elements": [
+            {
+              "background": {
+                "color": {
+                  "fixed": "light-orange"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "transparent"
+                },
+                "width": 11
+              },
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#ffffff"
+                },
+                "size": 18,
+                "text": {
+                  "fixed": "Machine Power",
+                  "mode": "fixed"
+                },
+                "valign": "middle"
+              },
+              "constraint": {
+                "horizontal": "leftright",
+                "vertical": "topbottom"
+              },
+              "name": "Element 1",
+              "placement": {
+                "bottom": 166,
+                "left": 0,
+                "right": -10,
+                "top": 0
+              },
+              "type": "text"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "transparent"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "dark-green"
+                }
+              },
+              "config": {
+                "fill": {
+                  "fixed": "text"
+                },
+                "path": {
+                  "field": "",
+                  "fixed": "img/icons/unicons/power.svg",
+                  "mode": "fixed"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "Element 2",
+              "placement": {
+                "height": 75.99537658691406,
+                "left": 56,
+                "top": 97,
+                "width": 80.99537658691406
+              },
+              "type": "icon"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "transparent"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "dark-green"
+                }
+              },
+              "config": {
+                "align": "center",
+                "color": {
+                  "fixed": "#000000"
+                },
+                "size": 30,
+                "text": {
+                  "field": "{instance=\"10.138.77.104:9110\", job=\"prometheus\"}",
+                  "fixed": "",
+                  "mode": "field"
+                },
+                "valign": "middle"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "Element 3",
+              "placement": {
+                "height": 71.6782455444336,
+                "left": 130,
+                "top": 101,
+                "width": 154.87269592285156
+              },
+              "type": "metric-value"
+            }
+          ],
+          "name": "Element 1713267421953",
+          "placement": {
+            "height": 100,
+            "left": 0,
+            "top": 0,
+            "width": 100
+          },
+          "type": "frame"
+        },
+        "showAdvancedTypes": true
+      },
+      "pluginVersion": "10.4.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fdiskhln5vlkwd"
+          },
+          "editorMode": "code",
+          "expr": "avg_over_time(powerstat[$__interval])",
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "type": "canvas"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Mixed --"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "fieldMinMax": false,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "joule"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 6,
+        "x": 12,
+        "y": 13
+      },
+      "id": 9,
+      "options": {
+        "infinitePan": false,
+        "inlineEditing": true,
+        "panZoom": false,
+        "root": {
+          "background": {
+            "color": {
+              "fixed": "#ebebeb"
+            }
+          },
+          "border": {
+            "color": {
+              "fixed": "dark-green"
+            }
+          },
+          "constraint": {
+            "horizontal": "left",
+            "vertical": "top"
+          },
+          "elements": [
+            {
+              "background": {
+                "color": {
+                  "fixed": "light-blue"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "transparent"
+                },
+                "width": 11
+              },
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#ffffff"
+                },
+                "size": 18,
+                "text": {
+                  "fixed": "Machine Energy",
+                  "mode": "fixed"
+                },
+                "valign": "middle"
+              },
+              "constraint": {
+                "horizontal": "leftright",
+                "vertical": "topbottom"
+              },
+              "name": "Element 1",
+              "placement": {
+                "bottom": 166,
+                "left": 0,
+                "right": -10,
+                "top": 0
+              },
+              "type": "text"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "transparent"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "dark-green"
+                }
+              },
+              "config": {
+                "fill": {
+                  "fixed": "text"
+                },
+                "path": {
+                  "field": "",
+                  "fixed": "img/icons/unicons/battery-bolt.svg",
+                  "mode": "fixed"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "Element 2",
+              "placement": {
+                "height": 83.17130279541016,
+                "left": 56,
+                "top": 97,
+                "width": 83.17130279541016
+              },
+              "type": "icon"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "transparent"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "dark-green"
+                }
+              },
+              "config": {
+                "align": "center",
+                "color": {
+                  "fixed": "#000000"
+                },
+                "size": 30,
+                "text": {
+                  "field": "{instance=\"10.138.77.104:9110\", job=\"prometheus\"}",
+                  "fixed": "",
+                  "mode": "field"
+                },
+                "valign": "middle"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "Element 3",
+              "placement": {
+                "height": 71.6782455444336,
+                "left": 130,
+                "top": 101,
+                "width": 154.87269592285156
+              },
+              "type": "metric-value"
+            }
+          ],
+          "name": "Element 1713267421953",
+          "placement": {
+            "height": 100,
+            "left": 0,
+            "top": 0,
+            "width": 100
+          },
+          "type": "frame"
+        },
+        "showAdvancedTypes": true
+      },
+      "pluginVersion": "10.4.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fdiskhln5vlkwd"
+          },
+          "editorMode": "code",
+          "expr": "avg_over_time(powerstat[$__interval])*60",
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "type": "canvas"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Mixed --"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "fieldMinMax": false,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "masskg"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 6,
+        "x": 18,
+        "y": 13
+      },
+      "id": 10,
+      "options": {
+        "infinitePan": false,
+        "inlineEditing": true,
+        "panZoom": false,
+        "root": {
+          "background": {
+            "color": {
+              "fixed": "#ebebeb"
+            }
+          },
+          "border": {
+            "color": {
+              "fixed": "dark-green"
+            }
+          },
+          "constraint": {
+            "horizontal": "left",
+            "vertical": "top"
+          },
+          "elements": [
+            {
+              "background": {
+                "color": {
+                  "fixed": "red"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "transparent"
+                },
+                "width": 11
+              },
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#ffffff"
+                },
+                "size": 18,
+                "text": {
+                  "fixed": "Machine CO2",
+                  "mode": "fixed"
+                },
+                "valign": "middle"
+              },
+              "constraint": {
+                "horizontal": "leftright",
+                "vertical": "topbottom"
+              },
+              "name": "Element 1",
+              "placement": {
+                "bottom": 166,
+                "left": 0,
+                "right": -10,
+                "top": 0
+              },
+              "type": "text"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "transparent"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "dark-green"
+                }
+              },
+              "config": {
+                "fill": {
+                  "fixed": "text"
+                },
+                "path": {
+                  "field": "",
+                  "fixed": "img/icons/unicons/fire.svg",
+                  "mode": "fixed"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "Element 2",
+              "placement": {
+                "height": 67.99768829345703,
+                "left": 56,
+                "top": 97,
+                "width": 80.99537658691406
+              },
+              "type": "icon"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "transparent"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "dark-green"
+                }
+              },
+              "config": {
+                "align": "center",
+                "color": {
+                  "fixed": "#000000"
+                },
+                "size": 30,
+                "text": {
+                  "field": "{instance=\"10.138.77.104:9110\", job=\"prometheus\"}",
+                  "fixed": "",
+                  "mode": "field"
+                },
+                "valign": "middle"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "Element 3",
+              "placement": {
+                "height": 71.6782455444336,
+                "left": 130,
+                "top": 101,
+                "width": 154.87269592285156
+              },
+              "type": "metric-value"
+            }
+          ],
+          "name": "Element 1713267421953",
+          "placement": {
+            "height": 100,
+            "left": 0,
+            "top": 0,
+            "width": 100
+          },
+          "type": "frame"
+        },
+        "showAdvancedTypes": true
+      },
+      "pluginVersion": "10.4.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fdiskhln5vlkwd"
+          },
+          "editorMode": "code",
+          "expr": "((((avg_over_time(powerstat[$__interval])/16.667)*0.82)/60)*5)",
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "type": "canvas"
     }
   ],
   "refresh": "5s",
@@ -427,6 +1197,6 @@
   "timezone": "browser",
   "title": "Sustainability (Workload Benchmarking)",
   "uid": "bdivq61erz0g0c",
-  "version": 8,
+  "version": 10,
   "weekStart": ""
 }
