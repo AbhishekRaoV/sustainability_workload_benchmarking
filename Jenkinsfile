@@ -122,6 +122,8 @@ pipeline {
         stage('Test') {
             steps {
                 script {
+                    def postgres_ip="10.138.77.104"
+                    def hammer_ip="10.138.77.94"
                      ws("${path}"){
                     sh """
                         ansible-playbook -i myinventory hammer_test.yaml -e postgres_ip=${postgres_ip} --extra-vars "ansible_sudo_pass=tcs@12345"
