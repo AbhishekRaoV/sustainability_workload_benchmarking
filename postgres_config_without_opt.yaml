@@ -29,15 +29,15 @@
         - /var/lib/postgresql/14/log
         - /var/lib/postgresql/14/backups
 
-    - name: give permissions
-      file:
-        path: "{{ item }}"
-        owner: postgres
-        group: postgres
-        recurse: yes
-      loop:
-        - /var/lib/postgresql
-        - /var/tmp/
+    # - name: give permissions
+    #   file:
+    #     path: "{{ item }}"
+    #     owner: postgres
+    #     group: postgres
+    #     recurse: yes
+    #   loop:
+    #     - /var/lib/postgresql
+    #     - /var/tmp/
 
     - name: Insert environment variables
       copy:
