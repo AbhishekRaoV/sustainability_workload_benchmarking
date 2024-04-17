@@ -17,9 +17,10 @@
   },
   "editable": true,
   "fiscalYearStartMonth": 0,
-  "graphTooltip": 0,
+  "graphTooltip": 1,
   "id": 2,
   "links": [],
+  "liveNow": true,
   "panels": [
     {
       "datasource": {
@@ -227,7 +228,7 @@
                 },
                 "path": {
                   "field": "",
-                  "fixed": "img/icons/unicons/clock.svg",
+                  "fixed": "img/icons/iot/clock.svg",
                   "mode": "fixed"
                 }
               },
@@ -237,10 +238,10 @@
               },
               "name": "Element 2",
               "placement": {
-                "height": 57.106483459472656,
-                "left": 86,
-                "top": 84,
-                "width": 60.092594146728516
+                "height": 55.989585876464844,
+                "left": 68,
+                "top": 82,
+                "width": 53.989585876464844
               },
               "type": "icon"
             },
@@ -275,9 +276,9 @@
               "name": "Element 3",
               "placement": {
                 "height": 53.85416793823242,
-                "left": 154,
-                "top": 86,
-                "width": 116.37733459472656
+                "left": 130,
+                "top": 83,
+                "width": 116.375
               },
               "type": "metric-value"
             }
@@ -433,7 +434,7 @@
                 },
                 "path": {
                   "field": "",
-                  "fixed": "img/icons/unicons/power.svg",
+                  "fixed": "img/icons/iot/powerbutton.svg",
                   "mode": "fixed"
                 }
               },
@@ -443,10 +444,10 @@
               },
               "name": "Element 2",
               "placement": {
-                "height": 57.09490966796875,
-                "left": 85,
-                "top": 83,
-                "width": 60.84490966796875
+                "height": 48.989585876464844,
+                "left": 67,
+                "top": 84,
+                "width": 55.989585876464844
               },
               "type": "icon"
             },
@@ -480,9 +481,9 @@
               },
               "name": "Element 3",
               "placement": {
-                "height": 53.842594146728516,
-                "left": 154,
-                "top": 85,
+                "height": 53.833335876464844,
+                "left": 131,
+                "top": 82,
                 "width": 116.35417175292969
               },
               "type": "metric-value"
@@ -621,7 +622,7 @@
                 },
                 "path": {
                   "field": "",
-                  "fixed": "img/icons/unicons/battery-bolt.svg",
+                  "fixed": "img/icons/iot/battery.svg",
                   "mode": "fixed"
                 }
               },
@@ -631,10 +632,10 @@
               },
               "name": "Element 2",
               "placement": {
-                "height": 57.99768829345703,
-                "left": 85,
-                "top": 78,
-                "width": 60.9953727722168
+                "height": 57.989585876464844,
+                "left": 65,
+                "top": 81,
+                "width": 60.989585876464844
               },
               "type": "icon"
             },
@@ -668,10 +669,10 @@
               },
               "name": "Element 3",
               "placement": {
-                "height": 49.97685241699219,
-                "left": 154,
-                "top": 82,
-                "width": 115.53240966796875
+                "height": 49.958335876464844,
+                "left": 134,
+                "top": 85,
+                "width": 115.52083587646484
               },
               "type": "metric-value"
             }
@@ -809,7 +810,7 @@
                 },
                 "path": {
                   "field": "",
-                  "fixed": "img/icons/unicons/fire.svg",
+                  "fixed": "img/icons/iot/co2.svg",
                   "mode": "fixed"
                 }
               },
@@ -820,9 +821,9 @@
               "name": "Element 2",
               "placement": {
                 "height": 56.97916793823242,
-                "left": 85,
-                "top": 82,
-                "width": 60.50926208496094
+                "left": 65,
+                "top": 80,
+                "width": 60.5
               },
               "type": "icon"
             },
@@ -856,10 +857,10 @@
               },
               "name": "Element 3",
               "placement": {
-                "height": 53.55324172973633,
-                "left": 154,
-                "top": 84,
-                "width": 115.70602416992188
+                "height": 53.552085876464844,
+                "left": 134,
+                "top": 82,
+                "width": 115.69792175292969
               },
               "type": "metric-value"
             }
@@ -890,6 +891,748 @@
         }
       ],
       "type": "canvas"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "fdiskhln5vlkwd"
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 24,
+        "x": 0,
+        "y": 14
+      },
+      "id": 11,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "<div style=\"background-color: rgb(223,240,255); border: 2px solid rgb(30,119,186); padding: 20px;\"> <h3 style=\"background-color: rgb(223,240,255); font-weight: bold; color: rgb(30,119,186);\">How much is this value of CO2 to something tangible?</h3> <p style=\"background-color: rgb(223,240,255); color: rgb(30,119,186);\">CO2 of software per run is relatively small. The values get big though cause software is repeatedly run. Therefore the following numbers reflect the CO2 value of the software as if it was run for 10 times a day over the course of a year (365 days).</p> </div>",
+        "mode": "html"
+      },
+      "pluginVersion": "10.4.2",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Mixed --"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 0,
+          "fieldMinMax": false,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 6,
+        "x": 0,
+        "y": 18
+      },
+      "id": 12,
+      "options": {
+        "infinitePan": false,
+        "inlineEditing": true,
+        "panZoom": false,
+        "root": {
+          "background": {
+            "color": {
+              "fixed": "#ebebeb"
+            }
+          },
+          "border": {
+            "color": {
+              "fixed": "dark-green"
+            }
+          },
+          "elements": [
+            {
+              "background": {
+                "color": {
+                  "fixed": "light-green"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "transparent"
+                },
+                "width": 11
+              },
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#ffffff"
+                },
+                "size": 18,
+                "text": {
+                  "fixed": "Trees",
+                  "mode": "fixed"
+                },
+                "valign": "middle"
+              },
+              "constraint": {
+                "horizontal": "leftright",
+                "vertical": "topbottom"
+              },
+              "name": "Element 1",
+              "placement": {
+                "bottom": 131,
+                "left": 0,
+                "right": -10,
+                "top": 0
+              },
+              "type": "text"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "transparent"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "dark-green"
+                }
+              },
+              "config": {
+                "fill": {
+                  "fixed": "text"
+                },
+                "path": {
+                  "field": "",
+                  "fixed": "img/icons/iot/tree.svg",
+                  "mode": "fixed"
+                }
+              },
+              "connections": [],
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "Element 2",
+              "placement": {
+                "height": 56.97916793823242,
+                "left": 96,
+                "top": 81,
+                "width": 60.5
+              },
+              "type": "icon"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "transparent"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "dark-green"
+                }
+              },
+              "config": {
+                "align": "center",
+                "color": {
+                  "fixed": "#000000"
+                },
+                "size": 30,
+                "text": {
+                  "field": "{instance=\"10.138.77.104:9110\", job=\"prometheus\"}",
+                  "fixed": "",
+                  "mode": "field"
+                },
+                "valign": "middle"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "Element 3",
+              "placement": {
+                "height": 53.552085876464844,
+                "left": 164,
+                "top": 83,
+                "width": 54
+              },
+              "type": "metric-value"
+            }
+          ],
+          "name": "Element 1713267421953",
+          "type": "frame"
+        },
+        "showAdvancedTypes": true
+      },
+      "pluginVersion": "10.4.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fdiskhln5vlkwd"
+          },
+          "editorMode": "code",
+          "expr": "((((((avg_over_time(powerstat[$__interval])/16.667)*0.82)/60)*5)*3650)/25)",
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "type": "canvas"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Mixed --"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 0,
+          "fieldMinMax": false,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "lengthmi"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 6,
+        "x": 6,
+        "y": 18
+      },
+      "id": 13,
+      "options": {
+        "infinitePan": false,
+        "inlineEditing": true,
+        "panZoom": false,
+        "root": {
+          "background": {
+            "color": {
+              "fixed": "#ebebeb"
+            }
+          },
+          "border": {
+            "color": {
+              "fixed": "dark-green"
+            }
+          },
+          "elements": [
+            {
+              "background": {
+                "color": {
+                  "fixed": "light-green"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "transparent"
+                },
+                "width": 11
+              },
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#ffffff"
+                },
+                "size": 18,
+                "text": {
+                  "fixed": "Car Driven",
+                  "mode": "fixed"
+                },
+                "valign": "middle"
+              },
+              "constraint": {
+                "horizontal": "leftright",
+                "vertical": "topbottom"
+              },
+              "name": "Element 1",
+              "placement": {
+                "bottom": 131,
+                "left": 0,
+                "right": -10,
+                "top": 0
+              },
+              "type": "text"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "transparent"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "dark-green"
+                }
+              },
+              "config": {
+                "fill": {
+                  "fixed": "text"
+                },
+                "path": {
+                  "field": "",
+                  "fixed": "img/icons/iot/car.svg",
+                  "mode": "fixed"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "Element 2",
+              "placement": {
+                "height": 56.97916793823242,
+                "left": 65,
+                "top": 80,
+                "width": 60.5
+              },
+              "type": "icon"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "transparent"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "dark-green"
+                }
+              },
+              "config": {
+                "align": "center",
+                "color": {
+                  "fixed": "#000000"
+                },
+                "size": 30,
+                "text": {
+                  "field": "{instance=\"10.138.77.104:9110\", job=\"prometheus\"}",
+                  "fixed": "",
+                  "mode": "field"
+                },
+                "valign": "middle"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "Element 3",
+              "placement": {
+                "height": 53.552085876464844,
+                "left": 133,
+                "top": 82,
+                "width": 115.69792175292969
+              },
+              "type": "metric-value"
+            }
+          ],
+          "name": "Element 1713267421953",
+          "type": "frame"
+        },
+        "showAdvancedTypes": true
+      },
+      "pluginVersion": "10.4.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fdiskhln5vlkwd"
+          },
+          "editorMode": "code",
+          "expr": "((((((avg_over_time(powerstat[$__interval])/16.667)*0.82)/60)*5)*3650)*2.29907)",
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "type": "canvas"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Mixed --"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 0,
+          "fieldMinMax": false,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "litre"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 6,
+        "x": 12,
+        "y": 18
+      },
+      "id": 14,
+      "options": {
+        "infinitePan": false,
+        "inlineEditing": true,
+        "panZoom": false,
+        "root": {
+          "background": {
+            "color": {
+              "fixed": "#ebebeb"
+            }
+          },
+          "border": {
+            "color": {
+              "fixed": "dark-green"
+            }
+          },
+          "elements": [
+            {
+              "background": {
+                "color": {
+                  "fixed": "light-green"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "transparent"
+                },
+                "width": 11
+              },
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#ffffff"
+                },
+                "size": 18,
+                "text": {
+                  "fixed": "Gasoline",
+                  "mode": "fixed"
+                },
+                "valign": "middle"
+              },
+              "constraint": {
+                "horizontal": "leftright",
+                "vertical": "topbottom"
+              },
+              "name": "Element 1",
+              "placement": {
+                "bottom": 131,
+                "left": 0,
+                "right": -10,
+                "top": 0
+              },
+              "type": "text"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "transparent"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "dark-green"
+                }
+              },
+              "config": {
+                "fill": {
+                  "fixed": "text"
+                },
+                "path": {
+                  "field": "",
+                  "fixed": "img/icons/iot/gasoline.svg",
+                  "mode": "fixed"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "Element 2",
+              "placement": {
+                "height": 56.97916793823242,
+                "left": 65,
+                "top": 81,
+                "width": 60.5
+              },
+              "type": "icon"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "transparent"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "dark-green"
+                }
+              },
+              "config": {
+                "align": "center",
+                "color": {
+                  "fixed": "#000000"
+                },
+                "size": 30,
+                "text": {
+                  "field": "{instance=\"10.138.77.104:9110\", job=\"prometheus\"}",
+                  "fixed": "",
+                  "mode": "field"
+                },
+                "valign": "middle"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "Element 3",
+              "placement": {
+                "height": 53.552085876464844,
+                "left": 133,
+                "top": 83,
+                "width": 115.69792175292969
+              },
+              "type": "metric-value"
+            }
+          ],
+          "name": "Element 1713267421953",
+          "type": "frame"
+        },
+        "showAdvancedTypes": true
+      },
+      "pluginVersion": "10.4.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fdiskhln5vlkwd"
+          },
+          "editorMode": "code",
+          "expr": "((((((avg_over_time(powerstat[$__interval])/16.667)*0.82)/60)*5)*3650)/2.3)",
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "type": "canvas"
+    },
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "-- Mixed --"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 0,
+          "fieldMinMax": false,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 6,
+        "x": 18,
+        "y": 18
+      },
+      "id": 15,
+      "options": {
+        "infinitePan": false,
+        "inlineEditing": true,
+        "panZoom": false,
+        "root": {
+          "background": {
+            "color": {
+              "fixed": "#ebebeb"
+            }
+          },
+          "border": {
+            "color": {
+              "fixed": "dark-green"
+            }
+          },
+          "elements": [
+            {
+              "background": {
+                "color": {
+                  "fixed": "light-green"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "transparent"
+                },
+                "width": 11
+              },
+              "config": {
+                "align": "left",
+                "color": {
+                  "fixed": "#ffffff"
+                },
+                "size": 18,
+                "text": {
+                  "fixed": "Flights (Berlin >> NYC)",
+                  "mode": "fixed"
+                },
+                "valign": "middle"
+              },
+              "constraint": {
+                "horizontal": "leftright",
+                "vertical": "topbottom"
+              },
+              "name": "Element 1",
+              "placement": {
+                "bottom": 131,
+                "left": 0,
+                "right": -10,
+                "top": 0
+              },
+              "type": "text"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "transparent"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "dark-green"
+                }
+              },
+              "config": {
+                "fill": {
+                  "fixed": "text"
+                },
+                "path": {
+                  "field": "",
+                  "fixed": "img/icons/iot/flight.svg",
+                  "mode": "fixed"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "Element 2",
+              "placement": {
+                "height": 56.97916793823242,
+                "left": 98,
+                "top": 81,
+                "width": 60.5
+              },
+              "type": "icon"
+            },
+            {
+              "background": {
+                "color": {
+                  "fixed": "transparent"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "dark-green"
+                }
+              },
+              "config": {
+                "align": "center",
+                "color": {
+                  "fixed": "#000000"
+                },
+                "size": 30,
+                "text": {
+                  "field": "{instance=\"10.138.77.104:9110\", job=\"prometheus\"}",
+                  "fixed": "",
+                  "mode": "field"
+                },
+                "valign": "middle"
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "name": "Element 3",
+              "placement": {
+                "height": 53.552085876464844,
+                "left": 166,
+                "top": 83,
+                "width": 50
+              },
+              "type": "metric-value"
+            }
+          ],
+          "name": "Element 1713267421953",
+          "type": "frame"
+        },
+        "showAdvancedTypes": true
+      },
+      "pluginVersion": "10.4.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fdiskhln5vlkwd"
+          },
+          "editorMode": "code",
+          "expr": "((((((avg_over_time(powerstat[$__interval])/16.667)*0.82)/60)*5)*3650)/130)",
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "type": "canvas"
     }
   ],
   "refresh": "5s",
@@ -906,6 +1649,6 @@
   "timezone": "browser",
   "title": "Sustainability (Workload Benchmarking)",
   "uid": "bdivq61erz0g0c",
-  "version": 11,
+  "version": 21,
   "weekStart": ""
 }
