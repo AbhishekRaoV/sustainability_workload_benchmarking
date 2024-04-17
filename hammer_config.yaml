@@ -1,6 +1,6 @@
 ---
 - name: Config HammerDB
-  hosts: localhost
+  hosts: hammer
   become: true
   vars:
     postgres_ip: "10.138.77.104"
