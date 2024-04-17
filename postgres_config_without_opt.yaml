@@ -1,6 +1,6 @@
 ---
 - name: Postgres DB Config
-  hosts: localhost
+  hosts: postgres
   become: true
   vars:
     postgres_ip: "10.138.77.104"
