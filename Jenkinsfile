@@ -22,9 +22,9 @@ pipeline {
                         def fileCount = sh(script: 'ls -la | wc -l', returnStdout: true).trim()
                         echo "File count: $fileCount"
                         if (fileCount.toInteger() == 3) {
-                            git branch: 'main', url: 'https://github.com/AbhishekRaoV/Intel_IceLake.git'
+                            git branch: 'main', url: 'https://github.com/AbhishekRaoV/sustainability_workload_benchmarking.git'
                         }else{
-                            git branch: 'main', url: 'https://github.com/AbhishekRaoV/Intel_IceLake.git'
+                            git branch: 'main', url: 'https://github.com/AbhishekRaoV/sustainability_workload_benchmarking.git'
                         }
                     }
                 }
@@ -93,10 +93,8 @@ pipeline {
                     if("${params.Optimization}" == "Optimized"){
                     sh """
                         ansible-playbook -i myinventory postgres_install.yaml
-                        ansible-playbook -i myinventory hammerdb_install.yaml
-                        ansible-playbook -i myinventory node_exporter_install.yaml
-                        ansible-playbook -i myini prometheus_config.yaml -e postgres_ip=${postgres_ip}
-                        ansible-playbook -i myinventory postgres_config_with_optimisation.yaml -e postgres_ip=${postgres_ip} -e hammer_ip=${hammer_ip}
+                        ansible-playbook -i myinventory hammer_install.yaml  
+                        ansible-playbook -i myinventory postgres_config_without_opt.yaml -e postgres_ip=${postgres_ip} -e hammer_ip=${hammer_ip}
                         ansible-playbook -i myinventory hammer_config.yaml -e postgres_ip=${postgres_ip}
                         ansible-playbook -i myinventory postgres_backup.yaml 
                     """
@@ -105,12 +103,10 @@ pipeline {
                     if("${params.Optimization}" == "Non-Optimized"){
                     sh """
                         ansible-playbook -i myinventory postgres_install.yaml
-                        ansible-playbook -i myinventory hammerdb_install.yaml
-                        ansible-playbook -i myinventory node_exporter_install.yaml
-                        ansible-playbook -i myini prometheus_config.yaml -e postgres_ip=${postgres_ip}
-                        ansible-playbook -i myinventory postgres_config.yaml -e postgres_ip=${postgres_ip} -e hammer_ip=${hammer_ip}
+                        ansible-playbook -i myinventory hammer_install.yaml  
+                        ansible-playbook -i myinventory postgres_config_without_opt.yaml -e postgres_ip=${postgres_ip} -e hammer_ip=${hammer_ip}
                         ansible-playbook -i myinventory hammer_config.yaml -e postgres_ip=${postgres_ip}
-                        ansible-playbook -i myinventory postgres_backup.yaml 
+                        ansible-playbook -i myinventory postgres_backup.yaml
                     """
                     }
                         // ansible-playbook -i myinventory prometheus_install.yaml
@@ -126,12 +122,12 @@ pipeline {
                 script {
                      ws("${path}"){
                     sh """
-                        ansible-playbook -i myinventory test_hammer.yaml -e postgres_ip=${postgres_ip}
-                        ansible-playbook -i myinventory restore_db.yaml
-                        ansible-playbook -i myinventory test_hammer.yaml -e postgres_ip=${postgres_ip}
-                        ansible-playbook -i myinventory restore_db.yaml 
-                        ansible-playbook -i myinventory test_hammer.yaml -e postgres_ip=${postgres_ip}
-                        ansible-playbook -i myinventory restore_db.yaml  
+                        ansible-playbook -i myinventory hammer_test.yaml -e postgres_ip=${postgres_ip}
+                        ansible-playbook -i myinventory postgres_restore.yaml
+                        ansible-playbook -i myinventory hammer_test.yaml -e postgres_ip=${postgres_ip}
+                        ansible-playbook -i myinventory postgres_restore.yaml 
+                        ansible-playbook -i myinventory hammer_test.yaml -e postgres_ip=${postgres_ip}
+                        ansible-playbook -i myinventory postgres_restore.yaml  
                     
                         
                     """
