@@ -1,6 +1,6 @@
 ---
 - name: Restore DB
-  hosts: localhost
+  hosts: postgres
   become: true
   tasks:
     - name: Stop db
