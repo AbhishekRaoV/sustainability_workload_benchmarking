@@ -1,0 +1,2 @@
+postgres ansible_ssh_host=tcs@10.138.77.104
+hammer ansible_ssh_host=tcs@10.138.77.94
