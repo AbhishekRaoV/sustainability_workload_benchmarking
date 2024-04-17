@@ -92,23 +92,25 @@ pipeline {
 
                     if("${params.Optimization}" == "Optimized"){
                     sh """
-                        ansible-playbook -i myinventory postgres_install.yaml --extra-vars "ansible_sudo_pass=tcs@12345"
+                        
                         ansible-playbook -i myinventory hammer_install.yaml --extra-vars "ansible_sudo_pass=tcs@12345"
                         ansible-playbook -i myinventory postgres_config_without_opt.yaml -e postgres_ip=${postgres_ip} -e hammer_ip=${hammer_ip} --extra-vars "ansible_sudo_pass=tcs@12345"
                         ansible-playbook -i myinventory hammer_config.yaml -e postgres_ip=${postgres_ip} --extra-vars "ansible_sudo_pass=tcs@12345"
                         ansible-playbook -i myinventory postgres_backup.yaml --extra-vars "ansible_sudo_pass=tcs@12345"
                     """
                     }
+                        // ansible-playbook -i myinventory postgres_install.yaml --extra-vars "ansible_sudo_pass=tcs@12345"
 
                     if("${params.Optimization}" == "Non-Optimized"){
                     sh """
-                        ansible-playbook -i myinventory postgres_install.yaml --extra-vars "ansible_sudo_pass=tcs@12345"
+                       
                         ansible-playbook -i myinventory hammer_install.yaml --extra-vars "ansible_sudo_pass=tcs@12345"  
                         ansible-playbook -i myinventory postgres_config_without_opt.yaml -e postgres_ip=${postgres_ip} -e hammer_ip=${hammer_ip} --extra-vars "ansible_sudo_pass=tcs@12345"
                         ansible-playbook -i myinventory hammer_config.yaml -e postgres_ip=${postgres_ip} --extra-vars "ansible_sudo_pass=tcs@12345"
                         ansible-playbook -i myinventory postgres_backup.yaml --extra-vars "ansible_sudo_pass=tcs@12345"
                     """
                     }
+                         // ansible-playbook -i myinventory postgres_install.yaml --extra-vars "ansible_sudo_pass=tcs@12345"
                         // ansible-playbook -i myinventory prometheus_install.yaml
                         // ansible-playbook -i myinventory postgres_exporter_install.yaml -e postgres_ip=${postgres_ip}
                         // ansible-playbook -i myinventory grafana_install.yaml
