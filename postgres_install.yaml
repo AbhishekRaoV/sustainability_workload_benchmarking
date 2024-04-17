@@ -1,6 +1,6 @@
 ---
 - name: PostgreSQL installation on cluster nodes
-  hosts: localhost
+  hosts: postgres, hammer
   tasks:
     - name: update nodes
       become: true
