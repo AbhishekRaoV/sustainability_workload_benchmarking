@@ -65,59 +65,59 @@ pipeline {
         //     }
         // }
 
-        stage('Install & Configure') {
-            steps {
-                script {
-                    def postgres_ip="10.138.77.104"
-                    def hammer_ip="10.138.77.94"
-                    ws("${path}"){
-                        def timeoutSeconds = 300  // Set a reasonable timeout
+        // stage('Install & Configure') {
+        //     steps {
+        //         script {
+        //             def postgres_ip="10.138.77.104"
+        //             def hammer_ip="10.138.77.94"
+        //             ws("${path}"){
+        //                 def timeoutSeconds = 300  // Set a reasonable timeout
 
-                        timeout(time: timeoutSeconds, unit: 'SECONDS') {
-                            boolean ansiblePingSuccess = false
+        //                 timeout(time: timeoutSeconds, unit: 'SECONDS') {
+        //                     boolean ansiblePingSuccess = false
     
-                            while (!ansiblePingSuccess) {
-                                // Run Ansible ping command
-                                def ansiblePingCommand = "ansible all -m ping"
-                                def ansiblePingResult = sh(script: ansiblePingCommand, returnStatus: true)
-                                if (ansiblePingResult == 0) {
-                                    ansiblePingSuccess = true
-                                    echo "Ansible ping successful!"
-                                } else {
-                                    echo "Ansible ping failed. Retrying..."
-                                    sleep 10  // Adjust sleep duration as needed
-                                }
-                            }
-                        }
+        //                     while (!ansiblePingSuccess) {
+        //                         // Run Ansible ping command
+        //                         def ansiblePingCommand = "ansible all -m ping"
+        //                         def ansiblePingResult = sh(script: ansiblePingCommand, returnStatus: true)
+        //                         if (ansiblePingResult == 0) {
+        //                             ansiblePingSuccess = true
+        //                             echo "Ansible ping successful!"
+        //                         } else {
+        //                             echo "Ansible ping failed. Retrying..."
+        //                             sleep 10  // Adjust sleep duration as needed
+        //                         }
+        //                     }
+        //                 }
 
-                    if("${params.Optimization}" == "Optimized"){
-                    sh """
+        //             if("${params.Optimization}" == "Optimized"){
+        //             sh """
                         
-                        ansible-playbook -i myinventory hammer_install.yaml --extra-vars "ansible_sudo_pass=tcs@12345"
-                        ansible-playbook -i myinventory postgres_config_without_opt.yaml -e postgres_ip=${postgres_ip} -e hammer_ip=${hammer_ip} --extra-vars "ansible_sudo_pass=tcs@12345"
-                        ansible-playbook -i myinventory hammer_config.yaml -e postgres_ip=${postgres_ip} --extra-vars "ansible_sudo_pass=tcs@12345"
-                        ansible-playbook -i myinventory postgres_backup.yaml --extra-vars "ansible_sudo_pass=tcs@12345"
-                    """
-                    }
-                        // ansible-playbook -i myinventory postgres_install.yaml --extra-vars "ansible_sudo_pass=tcs@12345"
+        //                 ansible-playbook -i myinventory hammer_install.yaml --extra-vars "ansible_sudo_pass=tcs@12345"
+        //                 ansible-playbook -i myinventory postgres_config_without_opt.yaml -e postgres_ip=${postgres_ip} -e hammer_ip=${hammer_ip} --extra-vars "ansible_sudo_pass=tcs@12345"
+        //                 ansible-playbook -i myinventory hammer_config.yaml -e postgres_ip=${postgres_ip} --extra-vars "ansible_sudo_pass=tcs@12345"
+        //                 ansible-playbook -i myinventory postgres_backup.yaml --extra-vars "ansible_sudo_pass=tcs@12345"
+        //             """
+        //             }
+        //                 // ansible-playbook -i myinventory postgres_install.yaml --extra-vars "ansible_sudo_pass=tcs@12345"
 
-                    if("${params.Optimization}" == "Non-Optimized"){
-                    sh """
+        //             if("${params.Optimization}" == "Non-Optimized"){
+        //             sh """
                        
-                        ansible-playbook -i myinventory hammer_install.yaml --extra-vars "ansible_sudo_pass=tcs@12345"  
-                        ansible-playbook -i myinventory postgres_config_without_opt.yaml -e postgres_ip=${postgres_ip} -e hammer_ip=${hammer_ip} --extra-vars "ansible_sudo_pass=tcs@12345"
-                        ansible-playbook -i myinventory hammer_config.yaml -e postgres_ip=${postgres_ip} --extra-vars "ansible_sudo_pass=tcs@12345"
-                        ansible-playbook -i myinventory postgres_backup.yaml --extra-vars "ansible_sudo_pass=tcs@12345"
-                    """
-                    }
-                         // ansible-playbook -i myinventory postgres_install.yaml --extra-vars "ansible_sudo_pass=tcs@12345"
-                        // ansible-playbook -i myinventory prometheus_install.yaml
-                        // ansible-playbook -i myinventory postgres_exporter_install.yaml -e postgres_ip=${postgres_ip}
-                        // ansible-playbook -i myinventory grafana_install.yaml
-                }
-                }
-            }
-        }
+        //                 ansible-playbook -i myinventory hammer_install.yaml --extra-vars "ansible_sudo_pass=tcs@12345"  
+        //                 ansible-playbook -i myinventory postgres_config_without_opt.yaml -e postgres_ip=${postgres_ip} -e hammer_ip=${hammer_ip} --extra-vars "ansible_sudo_pass=tcs@12345"
+        //                 ansible-playbook -i myinventory hammer_config.yaml -e postgres_ip=${postgres_ip} --extra-vars "ansible_sudo_pass=tcs@12345"
+        //                 ansible-playbook -i myinventory postgres_backup.yaml --extra-vars "ansible_sudo_pass=tcs@12345"
+        //             """
+        //             }
+        //                  // ansible-playbook -i myinventory postgres_install.yaml --extra-vars "ansible_sudo_pass=tcs@12345"
+        //                 // ansible-playbook -i myinventory prometheus_install.yaml
+        //                 // ansible-playbook -i myinventory postgres_exporter_install.yaml -e postgres_ip=${postgres_ip}
+        //                 // ansible-playbook -i myinventory grafana_install.yaml
+        //         }
+        //         }
+        //     }
+        // }
 
         stage('Test') {
             steps {
