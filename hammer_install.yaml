@@ -1,6 +1,6 @@
 ---
 - name: Install hammerDb
-  hosts: localhost
+  hosts: hammer
   become: true
   tasks:
     - name: Download HammerDB 4.1
