@@ -128,12 +128,6 @@ pipeline {
                     sh """
                         ansible-playbook -i myinventory hammer_test.yaml -e postgres_ip=${postgres_ip} --extra-vars "ansible_sudo_pass=tcs@12345"
                         ansible-playbook -i myinventory postgres_restore.yaml --extra-vars "ansible_sudo_pass=tcs@12345"
-                        ansible-playbook -i myinventory hammer_test.yaml -e postgres_ip=${postgres_ip} --extra-vars "ansible_sudo_pass=tcs@12345"
-                        ansible-playbook -i myinventory postgres_restore.yaml --extra-vars "ansible_sudo_pass=tcs@12345"
-                        ansible-playbook -i myinventory hammer_test.yaml -e postgres_ip=${postgres_ip} --extra-vars "ansible_sudo_pass=tcs@12345"
-                        ansible-playbook -i myinventory postgres_restore.yaml --extra-vars "ansible_sudo_pass=tcs@12345"  
-                    
-                        
                     """
                     
                 }
